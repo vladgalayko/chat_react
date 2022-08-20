@@ -1,0 +1,79 @@
+.message-list {
+    padding: 82px;
+    padding-bottom: 20px;
+    background-color: #ededed; 
+}
+.message {
+    display:flex;
+    align-items: center;
+    margin-top: 60px;
+    background: #393939;
+    color: #fff;
+    padding: 0 auto;
+    border-radius: 35px;
+}
+.message-text {
+    margin-left: -45px;
+}
+.compose {
+    display: flex;
+    left: 400px;
+    height: 85px;
+    align-items: center;
+    padding: 20px 20px;
+    background: #ededed;
+    border-top: 1px solid #eeeef1;
+    position: fixed;
+    width: calc(100% - 20px);
+    bottom: 0px;
+}
+.compose-input {
+    width: 70%;
+    height: 60%;
+    background: #f4f4f8;
+    padding: 8px 10px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+}
+.compose-input::placeholder {
+    opacity: 0.3;
+  }
+.person-photo {
+    position: relative;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;    
+}
+.person-photo-header {
+    position: relative;
+    right: 35px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;  
+}
+.person-name {
+    display: block;
+}
+.contact-wrapper {
+    display: flex;
+    margin-top: -55px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.checked-message-wrapper {
+    position: relative;
+    left: 20px;
+    top: 19px;
+}
+.send {
+    left: -45px;
+    position: relative;
+    cursor: pointer;
+}

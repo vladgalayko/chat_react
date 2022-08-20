@@ -1,0 +1,52 @@
+.list-contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.list-contact-item:hover {
+    background: #eeeef1;
+    cursor: pointer;
+}
+.contact-item {
+    align-items: center;
+    padding: 10px;
+}
+.seacrh-section {
+    padding: 20px 20px;
+    background: #ededed;
+}
+.contact-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;     
+}
+.contact-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0;
+      
+}
+.contact-message {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+.chats {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 45px;
+    color: #38b7f1;
+}
+.checked {
+    position: relative;
+    left: -20px;
+    top: 20px;
+}
+.checked-header {
+    position: relative;
+    left: -20px;
+    top: 3px;
+}
