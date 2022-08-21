@@ -3,7 +3,7 @@ import send from './sendIcon.png'
 const MessageFooter = ({handleSendMessage}) => {
     const [message, setMessage] = useState('');
 
-    const saveMessage = () => {
+    const saveMessage = (e) => {
         handleSendMessage(message)
         setMessage('')
     }

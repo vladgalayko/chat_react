@@ -1,4 +1,7 @@
 .message-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
     padding: 82px;
     padding-bottom: 20px;
     background-color: #ededed; 
@@ -12,8 +15,19 @@
     padding: 0 auto;
     border-radius: 35px;
 }
+.usermassage {
+    display:flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-top: 60px;
+    background: #ededed;
+    color: black;
+    padding: 0 auto;
+    border-radius: 35px;
+}
 .message-text {
-    margin-left: -45px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 .compose {
     display: flex;
@@ -76,4 +90,9 @@
     left: -45px;
     position: relative;
     cursor: pointer;
+}
+.date {
+    position: relative;
+    top: 25px;
+    color: grey;
 }

@@ -3,8 +3,7 @@ import SearchPanel from "../SearchPanel/SearchPanel";
 import './ContactsSection.css';
 import pic from './myAvatar.png';
 
-const ContactsSection = ({contacts, handleSelectContact, selectedContactId, search, handleSearchChange, filtered, checked}) => {
-    console.log(contacts);
+const ContactsSection = ({handleSelectContact, search, handleSearchChange, filtered, checked}) => {
     return (
         <div>
             <div>
@@ -37,12 +36,12 @@ const ContactsSection = ({contacts, handleSelectContact, selectedContactId, sear
                     src={checked} 
                     alt="checked"
                     className="checked" />
-
                 <div className="contact-item">
                     <h1 className="contact-name">
                         {contact.name}
                     </h1>
                     <p className="contact-message">
+                    
                         {contact.text}
                     </p>
                 </div>

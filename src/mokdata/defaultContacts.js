@@ -3,7 +3,7 @@ const defaultContacts = [
         "photo": "https://randomuser.me/api/portraits/men/67.jpg",
         "name": "Phoenix King",
         "text": "Hello world! This is a long message that needs to be truncated.",
-        "id": "1"
+        "id": "1",
     },
     {
         "photo": "https://randomuser.me/api/portraits/men/3.jpg",
