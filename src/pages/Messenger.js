@@ -6,18 +6,26 @@ import ContactsSection from "../components/ContactsSection/ContactsSection";
 import MessageSection from "../components/MessageSection/MessageSection";
 import checked from "../components/ContactsSection/checked.png";
 import { getChukNorrisResponce } from "../services/ChukNorris";
+import toast, { Toaster } from 'react-hot-toast';
 import './Messenger.css'
 
+
+const notify = (message) => toast(message);
+
 const Messenger = () => {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        left: 0,
-        behavior: 'smooth'
-      });
+
+    // window.scrollTo({
+    //     top: document.body.scrollHeight,
+    //     left: 0,
+    //     behavior: 'smooth'
+    //   });
+
     const [contacts, setContacts] = useState([]);
     const [messages, setMessages] = useState([]);
     const [selectedContactId, setSelectedContactId] = useState(null);
     const [search, setNewSearch] = useState("");
+
+    // setContacts(contacts.sort((a,b) => a.timestamp - b.timestamp));
 
     let time = new Date().getTime();
     let date = new Date(time);
@@ -36,6 +44,7 @@ const Messenger = () => {
             () => contacts.filter(el => el.id === selectedContactId)[0],
             [selectedContactId, contacts]
             )
+
     useEffect(() => {
         const savedContacts = getItemFromLocalStorage('contacts')
         const savedContactId = getItemFromLocalStorage('contactId')
@@ -57,7 +66,6 @@ const Messenger = () => {
         }
         setSelectedContactId(newSelectedContactId)
         setContacts(newContacts);
-
         if (savedMessages) {
             setMessages(savedMessages[newSelectedContactId])
         } else {
@@ -78,7 +86,7 @@ const Messenger = () => {
             const messageData = {
                 isUserMessage: true,
                 id: Math.round(Math.random() * 1000),
-                // author: 'apple',
+                needResponce: true,
                 message: message,
                 timestamp: date.toString().slice(0, 24)
             }
@@ -90,28 +98,25 @@ const Messenger = () => {
                 ...savedMessages, 
                 [selectedContactId]: newMessages
             })
-
-            
-            // await setTimeout(async () => {
-            //     const resMessage = await getChukNorrisResponce()
-            //     console.log(resMessage)
-            //     const responceMessageData = {
-            //         isUserMessage: false,
-            //         id: Math.round(Math.random() * 10000),
-            //         message: resMessage,
-            //         timestamp: date.toString().slice(0, 24)
-            //     }
-            //     const messagesWithRes = [...newMessages, responceMessageData]
-            //     setMessages(messagesWithRes)
-            //     const savedMessages = getItemFromLocalStorage('messages')
-            //     setItemToLocalStorage('messages', {
-            //         ...savedMessages,
-            //         [selectedContactId]: messagesWithRes
-            //     })
-            // }, 2000)
-        }
-            
-        
+            setTimeout(async () => {
+                const resMessage = await getChukNorrisResponce()
+                console.log(resMessage)
+                const responceMessageData = {
+                    isUserMessage: false,
+                    id: Math.round(Math.random() * 10000),
+                    message: resMessage,
+                    timestamp: date.toString().slice(0, 24)
+                }
+                const messagesWithRes = [...newMessages, responceMessageData]
+                setMessages(messagesWithRes)
+                const savedMessages = getItemFromLocalStorage('messages')
+                setItemToLocalStorage('messages', {
+                    ...savedMessages,
+                    [selectedContactId]: messagesWithRes
+                })
+                notify(resMessage)
+            },5000)
+        } 
         // Get responce from API and save this responce message
         
     }
@@ -131,6 +136,7 @@ const Messenger = () => {
             messages={messages}
             currentContact={currentContact}
             handleSendMessage={handleSendMessage}/>
+            <Toaster/>
         </div>
         
     )

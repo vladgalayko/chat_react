@@ -5,7 +5,7 @@ import pic from './myAvatar.png';
 
 const ContactsSection = ({handleSelectContact, search, handleSearchChange, filtered, checked}) => {
     return (
-        <div>
+        <div className="contacts-section-wrapper">
             <div>
                 <div className="seacrh-section">
                     <img 
@@ -39,9 +39,11 @@ const ContactsSection = ({handleSelectContact, search, handleSearchChange, filte
                 <div className="contact-item">
                     <h1 className="contact-name">
                         {contact.name}
+                        <div>
+                        {contact.date}
+                        </div>
                     </h1>
                     <p className="contact-message">
-                    
                         {contact.text}
                     </p>
                 </div>

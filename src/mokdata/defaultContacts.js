@@ -1,33 +1,40 @@
+let time = new Date().getTime();
+let date = new Date(time);
 const defaultContacts = [
     {
         "photo": "https://randomuser.me/api/portraits/men/67.jpg",
         "name": "Phoenix King",
         "text": "Hello world! This is a long message that needs to be truncated.",
         "id": "1",
+        "date": date.toString().slice(4, 15)
     },
     {
         "photo": "https://randomuser.me/api/portraits/men/3.jpg",
         "name": "Sacha Rodriguez",
         "text": "Hello world! This is a long message that needs to be truncated.",
-        "id": "2"
+        "id": "2",
+        "date": date.toString().slice(4, 15)
     },
     {
         "photo": "https://randomuser.me/api/portraits/men/86.jpg",
         "name": "Neven Subašić",
         "text": "Hello world! This is a long message that needs to be truncated.",
-        "id": "3"
+        "id": "3",
+        "date": date.toString().slice(4, 15)
     },
     {
         "photo": "https://randomuser.me/api/portraits/women/20.jpg",
         "name": "Sofia Sanders",
         "text": "Hello world! This is a long message that needs to be truncated.",
-        "id": "4"
+        "id": "4",
+        "date": date.toString().slice(4, 15)
     },
     {
         "photo": "https://randomuser.me/api/portraits/men/49.jpg",
         "name": "Don Spencer",
         "text": "Hello world! This is a long message that needs to be truncated.",
-        "id": "5"
+        "id": "5",
+        "date": date.toString().slice(4, 15)
     
     },
     // {

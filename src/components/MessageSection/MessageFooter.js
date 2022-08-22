@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import send from './sendIcon.png'
+
 const MessageFooter = ({handleSendMessage}) => {
     const [message, setMessage] = useState('');
 
@@ -32,7 +33,7 @@ const MessageFooter = ({handleSendMessage}) => {
     src={send} 
     alt="send"
     className="send"
-    onClick={saveMessage} />
+    onClick={saveMessage}/>
     </div>
     )
 }

@@ -11,6 +11,7 @@ const MessageSection = ({messages, currentContact, handleSendMessage, checked}) 
             <MessageHeader 
             checked={checked}
             currentContact={currentContact}/>
+             <div className="messages-list-wrapper">
              {messages.map((message, index) => (
              <div
                 // className={"message usermassage"}
@@ -31,6 +32,7 @@ const MessageSection = ({messages, currentContact, handleSendMessage, checked}) 
                     </div>
                 </div>
             </div>))}
+             </div>
             <MessageFooter handleSendMessage = {handleSendMessage}/>
         </div>
     )

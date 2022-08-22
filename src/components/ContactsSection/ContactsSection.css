@@ -1,3 +1,6 @@
+.contacts-section-wrapper {
+    width: 600px;
+}
 .list-contact-item {
     display: flex;
     align-items: center;
@@ -23,6 +26,8 @@
     margin-right: 10px;     
 }
 .contact-name {
+    display: flex;
+    justify-content: space-between;
     font-size: 14px;
     font-weight: bold;
     text-transform: capitalize;
