@@ -14,12 +14,6 @@ const notify = (message) => toast(message);
 
 const Messenger = () => {
 
-    // window.scrollTo({
-    //     top: document.body.scrollHeight,
-    //     left: 0,
-    //     behavior: 'smooth'
-    //   });
-
     const [contacts, setContacts] = useState([]);
     const [messages, setMessages] = useState([]);
     const [selectedContactId, setSelectedContactId] = useState(null);
@@ -100,7 +94,6 @@ const Messenger = () => {
             })
             setTimeout(async () => {
                 const resMessage = await getChukNorrisResponce()
-                console.log(resMessage)
                 const responceMessageData = {
                     isUserMessage: false,
                     id: Math.round(Math.random() * 10000),
