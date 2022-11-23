@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useRef} from "react";
+import React, {useState, useEffect, useMemo, useRef, useContext} from "react";
 import defaultContacts from "../mokdata/defaultContacts";
 import tempMessages from "../mokdata/Messeges"
 import { getItemFromLocalStorage, setItemToLocalStorage  } from "../helpers";
@@ -8,12 +8,19 @@ import checked from "../components/ContactsSection/checked.png";
 import { getChukNorrisResponce } from "../services/ChukNorris";
 import toast, { Toaster } from 'react-hot-toast';
 import './Messenger.css'
+import { Context } from "..";
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {useCollectionData} from 'react-firebase-hooks/firestore'
 
 
 const notify = (message) => toast(message);
 
 const Messenger = () => {
-
+    const {auth, firestore} = useContext(Context)
+    const [user] = useAuthState(auth)
+    const [message, loading] = useCollectionData(
+        firestore.collection('message').orderBy('createdAt')
+    )
     const [contacts, setContacts] = useState([]);
     const [messages, setMessages] = useState([]);
     const [selectedContactId, setSelectedContactId] = useState(null);
@@ -79,11 +86,13 @@ const Messenger = () => {
         if (message.trim().length !== 0) {
             const messageData = {
                 isUserMessage: true,
-                id: Math.round(Math.random() * 1000),
+                uid: user.uid,
+                photoURL: user.photoURL,
                 needResponce: true,
                 message: message,
                 timestamp: date.toString().slice(0, 24)
             }
+            firestore.collection('message').add(messageData)
     
             const newMessages = [...messages, messageData]
             setMessages(newMessages)

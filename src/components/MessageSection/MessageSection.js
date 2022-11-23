@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import './MessageSection.css'
 import MessageFooter from "./MessageFooter";
@@ -16,7 +16,7 @@ const MessageSection = ({messages, currentContact, handleSendMessage, checked}) 
              <div
                 // className={"message usermassage"}
                 className={`message ${message.isUserMessage ? 'usermassage' : ''}`}
-                key={message.id}>
+                key={index}>
                     {
                     !message.isUserMessage
                         && (

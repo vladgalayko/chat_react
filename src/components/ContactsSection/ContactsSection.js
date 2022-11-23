@@ -1,9 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import SearchPanel from "../SearchPanel/SearchPanel";
 import './ContactsSection.css';
 import pic from './myAvatar.png';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Context } from '../../';
+import { Link } from "react-router-dom";
+import {LOGIN_ROUTE} from '../../utils/consts'
+
 
 const ContactsSection = ({handleSelectContact, search, handleSearchChange, filtered, checked}) => {
+    const {auth} = useContext(Context);
+    const [user] = useAuthState(auth)
     return (
         <div className="contacts-section-wrapper">
             <div>
@@ -16,6 +24,13 @@ const ContactsSection = ({handleSelectContact, search, handleSearchChange, filte
                     src={checked} 
                     alt="checked"
                     className="checked-header" />
+                    {
+                        user
+                        ?
+                        <button onClick={() => auth.signOut()} className="logout-btn">Logout</button>
+                        :
+                        <Link to={LOGIN_ROUTE}/>
+                    }
                 </div>
             <SearchPanel
             handleSearchChange={handleSearchChange}
